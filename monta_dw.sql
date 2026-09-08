@@ -1,3 +1,46 @@
+-- -- encontrar os dias da semana mais fortes, ou seja aqueles em que a receita é mais alta
+-- SELECT 
+--     d.day_of_week AS dia_semana,
+--     d.is_weekend AS weekend,
+--     COUNT(*) AS vendas,
+--     SUM(f.total):: NUMERIC(12,2) AS receita,
+--     ROUND(AVG(f.total), 2) AS ticket_medio
+-- FROM dw.fact_sales f
+-- JOIN dw.dim_date d ON d.date_sk = f.date_sk
+-- GROUP BY d.day_of_week, d.is_weekend
+-- ORDER BY receita DESC;
+
+-- SELECT * FROM dw.dim_date;
+
+
+
+
+-- SELECT 
+--     c.customer_type AS tipo,
+--     c.gender AS genero,
+--     COUNT(*) AS vendas,
+--     ROUND(AVG(f.total), 2) AS ticket_medio,
+--     ROUND(AVG(f.rating), 2) AS avaliacao_media,
+--     ROUND(AVG(f.quantity), 2) AS itens_medio
+-- FROM dw.fact_sales f
+-- JOIN dw.dim_customer C ON c.customer_sk = f.customer_sk
+-- GROUP BY c.customer_type, c.gender
+-- ORDER BY tipo, genero;
+
+
+-- SELECT 
+--     p.product_line AS categoria,
+--     COUNT(*) AS vendas,
+--     SUM(f.quantity) AS itens_vendidos,
+--     SUM(f.total):: NUMERIC(12,2) AS receita,
+--     SUM(f.gross_income):: NUMERIC(12,2) AS lucro_bruto,
+--     ROUND(AVG(f.rating),2) AS avaliacao_media
+-- FROM dw.fact_sales f
+-- JOIN dw.dim_product p ON p.product_sk = f.product_sk
+-- GROUP BY p.product_line
+-- ORDER BY lucro_bruto DESC;
+
+
 -- SELECT 
 --     d.year,
 --     d.month_name,
